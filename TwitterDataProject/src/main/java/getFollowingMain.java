@@ -21,7 +21,7 @@ import com.google.gson.JsonParser;
  * Author: Ngo Bao(jimmNgo)
  * Last edited: 28th Dec 2022
  * Version: 1.1
- * Description: -
+ * Description: Main class that include algorithm to fetch API to get following list and store result as a .txt file
  * 
  */
 public class getFollowingMain {
@@ -41,7 +41,6 @@ public class getFollowingMain {
 
 	public static void main(String[] args) {
 		try {
-
 			Queue<String> handles = getHandles(Config.USERS_NUMBER_PER_ONE_RUN);
 
 			while (!handles.isEmpty()) {
@@ -51,24 +50,20 @@ public class getFollowingMain {
 
 				checkLimit();
 				userName = handles.remove();
-
 				id = getID(userName);
 				if (id == "" || id == null)continue;
-				
 				JSONArray following = getFollowing(id);
-				if(following == null) continue;
-		
-				nextToken = getFollowingAPI.getNextToken();
 				
+				if(following == null) continue;
+				nextToken = getFollowingAPI.getNextToken();
 				while (nextToken != null) {
 					following = getFollowing(id, nextToken);
 					nextToken = getFollowingAPI.getNextToken();
 				}
 				JSONObject congressMember = createJSONObject(following, userName, id);
+				
 				createDataFile(congressMember.toJSONString(), userName);
-
 				System.out.println("Done " + userName);
-
 			}
 			System.out.println("Program ended!");
 		} catch (IOException e) {
@@ -83,6 +78,7 @@ public class getFollowingMain {
 	
 	private static JSONArray getFollowing(String id, String nextToken) {
 		JSONArray following = null;
+		
 		try {
 			checkLimit();
 			following = getFollowingAPI.getFollowingByID(id,nextToken);
@@ -128,6 +124,7 @@ public class getFollowingMain {
 
 	private static String getID(String userName) {
 		String id = null;
+		
 		if (userName != "" && userName != null) {
 			try {
 				checkLimit();
@@ -148,11 +145,11 @@ public class getFollowingMain {
 			}
 		}
 		return id;
-
 	}
 
 	private static JSONObject createJSONObject(JSONArray following, String userName, String id) {
 		JSONObject congressMember = new JSONObject();
+		
 		congressMember.put(USER_NAME_FIELD, userName);
 		congressMember.put(ID_FIELD, id);
 		congressMember.put(FOLLOWING_FIELD, following);
@@ -165,10 +162,12 @@ public class getFollowingMain {
 		JsonElement je = jp.parse(JSONString);
 		String prettyJsonString = gson.toJson(je);
 		FileWriter fw;
+		
 		try {
 			fw = new FileWriter(userName + ".txt", true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
+			
 			pw.print(prettyJsonString);
 			pw.flush();
 			pw.close();

@@ -10,7 +10,7 @@ import org.json.simple.parser.ParseException;
  * Author: Ngo Bao(jimmNgo)
  * Last edited: 25th Dec 2022
  * Version: 1.0
- * Description: -
+ * Description: Description: Class provides necessary methods to manipulate data from get ID of user API
  * 
  */
 public class TwitterGetID extends TwitterUserAPI {
@@ -22,7 +22,6 @@ public class TwitterGetID extends TwitterUserAPI {
 		request = new HttpGet(url);
 		responseString = excuteURL();
 		JSONObject dataObject = (JSONObject)createJSONObject().get("data");
-	
 		return (String)dataObject.get("id");
 	}
 	

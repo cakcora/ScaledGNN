@@ -14,7 +14,7 @@ import org.json.simple.parser.ParseException;
  * Author: Ngo Bao(jimmNgo)
  * Last edited: 26th Dec 2022
  * Version: 1.1
- * Description: -
+ * Description: Parent class of get following class and get id class
  * 
  */
 public class TwitterUserAPI {
@@ -41,13 +41,13 @@ public class TwitterUserAPI {
 		request.setHeader("Cookie", APIToken.TWITTER_COOKIE);
 		response = httpClient.execute(request);
 		entity = response.getEntity();
-		
 		return EntityUtils.toString(entity);
 	}
 	
 	public JSONObject createJSONObject() throws ParseException {
 		JSONParser parser = new JSONParser();
 		JSONObject dataObject =  (JSONObject)parser.parse(responseString);
+		
 		return dataObject;
 	}
 	

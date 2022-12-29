@@ -15,7 +15,7 @@ import com.google.gson.JsonParser;
  * Author: Ngo Bao(jimmNgo)
  * Last edited: 27th Dec 2022
  * Version: 1.3
- * Description: -
+ * Description: Class provides necessary methods to manipulate data from get following API
  * 
  */
 public class TwitterGetFollowing extends TwitterUserAPI {
@@ -39,9 +39,7 @@ public class TwitterGetFollowing extends TwitterUserAPI {
 		
 		dataObject = (JSONObject)createJSONObject();
 		updateNextToken();
-		
 		following = (JSONArray)dataObject.get(FOLLOWING_KEY);
-		
 		return following;
 	}
 
@@ -51,7 +49,6 @@ public class TwitterGetFollowing extends TwitterUserAPI {
 		this.url = PROTOCOL + HOST + VERSION + RESOURCE + pathVar + queryParam;
 		request = new HttpGet(url);
 		responseString = excuteURL();
-		
 		dataObject = (JSONObject)createJSONObject();
 		updateNextToken();
 		
@@ -62,7 +59,6 @@ public class TwitterGetFollowing extends TwitterUserAPI {
 		}else {
 			following.addAll(nextFollowing);
 		}
-		
 		return following;
 	}
 	
