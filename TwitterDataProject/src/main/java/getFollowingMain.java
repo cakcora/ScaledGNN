@@ -17,7 +17,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-
+/*
+ * Author: Ngo Bao(jimmNgo)
+ * Last edited: 28th Dec 2022
+ * Version: 1.1
+ * Description: -
+ * 
+ */
 public class getFollowingMain {
 
 	private static final int LIMIT_TWITTER_REQUEST = 15;
