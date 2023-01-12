@@ -1,7 +1,8 @@
 # ScaledGNN
 
 ## Data
-**V0.1 and V0.2** store information (in a JSON string) on all the Twitter accounts followed by each US Congress member. **handles_party.txt** stores the official Twitter handles of all US Congress memebers and their associated parties.\
+**V0.1 and V0.2** store information (in a JSON string) on all the Twitter accounts followed by each US Congress member.\
+**handles_party.txt** stores the official Twitter handles of all US Congress memebers and their associated parties.\
 **V1.txt** contains the distinct Twitter IDs that are followed by at least one US Congress member, who follows at most **2000** Twitter users.
 
 ## WebScraping
