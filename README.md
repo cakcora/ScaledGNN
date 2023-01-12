@@ -5,7 +5,7 @@
 **V1.txt** contains the distinct Twitter IDs that are followed by at least one US Congress member, who follows at most **2000** Twitter users.
 
 ## WebScraping
-An R script that scrapes [data from an HTML table](https://pressgallery.house.gov/member-data/members-official-twitter-handles) using the rvest package. This table contains the names of the US congress members, their twitter handles and the party they belong to.
+An R script that scrapes [data from an HTML table](https://pressgallery.house.gov/member-data/members-official-twitter-handles) using the rvest package. This table contains the names of the US congress members, their twitter handles, state/district and the party they belong to.
 
 
 ## TwitterDataProject
