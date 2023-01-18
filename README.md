@@ -12,7 +12,7 @@ An R script that scrapes [data from an HTML table](https://pressgallery.house.go
 
 
 ## TwitterDataProject
-**TwitterDataProject** is a collector to get the list of users that given Twitter users follow, it can be a US Congress member or users in V01. This program is design to get following list from Twitter API V2 Access level: Essential, which has limitation on request. This programs will return files named based on Twitter users' name that will search for following lists.
+**TwitterDataProject** is a collector to get the list of users that a group of Twitter users follow - it can be a US Congress member or users in V01. This program is designed to get the following list from Twitter API V2 Access level: Essential, which has a limitation on request. This programs will return files named based on the Twitter users' name and will be used for getting their following list.
 
 ## CongressFollowingSet
 The main purpose of this program is to get V1.txt. The constraint of **2000** users is due to the amount of time and resources it will take to query the IDs of all users that are followed by US Congress members who follow a large number of users. For example, at the time V0 was created, Congress member Eleanor Norton, followed 27999 users. V1.txt will be queried to get V2.txt, which will be the set of user IDs that are followed by at least one user in V1.txt.
